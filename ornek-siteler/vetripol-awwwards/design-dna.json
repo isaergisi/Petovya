@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "name": "Vetripol × pear.no DNA",
+    "description": "pear.no'dan çıkarılan tasarım DNA'sı ve Vetripol'e uyarlanışı. Kod, metin ve görsel kopyalanmadı; yalnızca yaklaşım alındı.",
+    "source_references": ["https://pear.no/ (24.11.2026, tarayıcıda hesaplanmış stiller ve ekran görüntüleri)"],
+    "created_at": "2026-11-24"
+  },
+  "reference_dna": {
+    "design_system": {
+      "color": {
+        "palette_type": "tek doygun alan + kâğıt + baskı siyahı",
+        "surface": { "paper": "#f2f1ed", "press": "#0b0a09", "ink": "#1d1c19" },
+        "field": "doygun kobalt gökyüzü (resim içinden, ölçülmedi: ekran görüntüsü cihazda kaldı)",
+        "contrast_strategy": "büyük alanlarda tek renk zemin, üstünde açık kâğıt rengi metin"
+      },
+      "typography": {
+        "display": "Flecha (keskin serif), ağırlık 300, h2 ~78px, satır aralığı 0.88, harf aralığı -0.02em",
+        "body": "GT Standard L (grotesk), 16px / 24px",
+        "labels": "GT Standard Mono, 9–12px, BÜYÜK HARF, harf aralığı 0.18em, çoğu zaman kutu içinde"
+      },
+      "layout": "tam ekran sahneler, ince kılavuz çizgileri ve cetvel çentikleri, sol sütunda bölüm etiketi",
+      "shape": "keskin köşeler, kılavuz çizgileri 1px",
+      "motion": "ease cubic-bezier(.22,1,.36,1), sinematik giriş (bulanıktan netleşme), kaydırmaya bağlı uzun sahne"
+    },
+    "design_style": {
+      "mood": "klasik, sakin, kendinden emin, açık sözlü",
+      "visual_language": "neoklasik resim + kaide; teknik çizim kılavuzları",
+      "voice": "kısa hükümler, ikinci yarısı ayrık; 'açıkça söyleyelim' blokları"
+    },
+    "visual_effects": {
+      "dither_halftone": "noktalı bulutlar",
+      "scroll": "41.000px'lik tek sahne, kaydırmaya bağlı",
+      "intro": "bulanıktan netleşen hero"
+    }
+  },
+  "applied_to_vetripol": {
+    "color": {
+      "field": "#17656B (Pamukkale travertenlerindeki su)",
+      "field_deep": "#0F4A4F",
+      "paper": "#F2F0EA (traverten)",
+      "press": "#0B0A09",
+      "ink": "#1B1A17",
+      "accent": "#C4553B (tasma ve yıldızlarda küçük kiremit)"
+    },
+    "typography": {
+      "display": "Newsreader 300 + italik",
+      "body": "Hanken Grotesk 400–600",
+      "labels": "IBM Plex Mono 500, büyük harf, kutulu etiketler"
+    },
+    "kept": ["tek doygun renk alanı", "kaide üstündeki figür → traverten basamağında uyuyan kedi", "cetvel çentikli kılavuz çizgileri", "mono kutulu etiketler", "numaralı bölümler", "açık söyleyelim kutuları", "noktalı (dither) gölgelendirme", "bulanıktan netleşen giriş"],
+    "dropped": ["kaydırmaya bağlı uzun sahne (endişeli bir hayvan sahibi telefonda hızlı bilgi arar)", "küçük mono butonlar (yerine büyük, okunaklı arama butonları)", "fotoğraf/resim (sahte görsel yok; kedi bu sayfa için çizildi)"]
+  }
+}
