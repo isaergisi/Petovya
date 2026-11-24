@@ -1,6 +1,6 @@
 # Tasarım devri: Denizli örnek siteleri
 
-Bu belge, `ornek-siteler/` altındaki beş tek dosyalık sayfanın geliştiriciye devri içindir. Beş site **tek bir tasarım sistemini** paylaşır, her klinik bu sistemin üstüne kendi palet, yazı tipi ve kişiliğini koyar. Önce ortak sistem anlatılıyor, sonra klinik klinik farklar.
+Bu belge, `ornek-siteler/` altındaki beş tek dosyalık sayfanın geliştiriciye devri içindir. Beş site **tek bir tasarım sistemini** paylaşır, her klinik bu sistemin üstüne kendi palet, yazı tipi ve kişiliğini koyar. Hiera ve Koşuyolu ikinci turda, Cimihav'ın cesur diliyle yeniden çizildi: doygun renkli hero, kalın mürekkep kenarlar, sert gölgeler ve dokununca konuşan bir karakter. Önce ortak sistem anlatılıyor, sonra klinik klinik farklar.
 
 Kaynak dosyalar: `vetripol/`, `hiera/`, `cimihav/`, `petplus/`, `kosuyolu/` klasörlerindeki `index.html`. Hepsi satır içi CSS ve JS içerir. Dış bağımlılık olarak yalnızca Google Fonts kullanılır. Harita ise kullanıcı isterse Google'dan yüklenir.
 
@@ -24,7 +24,7 @@ Sayfayı açan kişi çoğunlukla telefondan, çoğu zaman da endişeli biri. Bu
 | Öğe | Değer | Neden |
 |---|---|---|
 | `.wrap` | `max-width: calc(var(--maxw) + 2 * var(--gutter))`, yatay padding `var(--gutter)` | Sol ve sağ içerik kenarları her bölümde aynı çizgide |
-| `--gutter` | `clamp(16px, 5vw, 56px)` (Hiera: 64px üst sınır) | 390 px'de 16 px yan boşluk |
+| `--gutter` | `clamp(16px, 5vw, 56px)` | 390 px'de 16 px yan boşluk |
 | `--maxw` | 1180 ile 1200 px | Satır uzunluğu okunur kalsın |
 | Izgara | 12 sütun, `gap: clamp(24px, 4vw, 56px)` | Bölümler 5+7 ya da 6+6 bölünür |
 | Bölüm | `main > section`, `min-height: calc(100svh - var(--header-h))`, `padding-block: clamp(56px, 9vh, 104px)`, içerik dikeyde ortalı | Her bölüm bir ekran, bol boşluk |
@@ -77,7 +77,7 @@ Her sitenin `:root` bloğu aynı adlarla başlar. Değerler ikinci bölümdeki t
 | Öğe | Durum | Davranış |
 |---|---|---|
 | `.btn` | Hover | `translateY(-2px)` ve yumuşak gölge, 160 ms |
-| `.btn` | Basılı (`:active`) | `scale(.97)`, gölge yok |
+| `.btn` | Basılı (`:active`) | `scale(.97)`, gölge yok. Cimihav, Hiera ve Koşuyolu'nda sert gölgeli butonlar basınca gölge kadar aşağı iner |
 | `.btn` | Odak | 3 px `--accent` çerçeve, 3 px boşluk (`:focus-visible`) |
 | Menü bağlantısı | Hover | Alt çizgi soldan sağa çizilir (`background-size` 0 → 100%), 250 ms |
 | Bağlantılı çip ve kart | Hover | `translateY(-2px)` |
@@ -112,7 +112,7 @@ Neden: Ziyaretçilerin çoğu telefondan geliyor ve aramayı başparmakla yapıy
 - `lang="tr"`, ilk odaklanan öğe "İçeriğe geç" bağlantısı.
 - Odak sırası şöyle: içeriğe geç, logo, menü, Hemen Ara, WhatsApp'tan Yaz, hero etkileşimi, bölümler sırayla, alt bilgi.
 - Tüm dokunma hedefleri en az 44 × 44 px. 390 px'de Playwright ile ölçüldü, küçük hedef yok.
-- Dekoratif SVG'ler `aria-hidden="true"`. Etkileşimli SVG'ler (Cimihav'daki köpek ve kedi) `role="button"`, `tabindex="0"` ve `aria-label` taşır, Enter ve Boşluk ile çalışır.
+- Dekoratif SVG'ler `aria-hidden="true"`. Etkileşimli SVG'ler (Cimihav'daki köpek ve kedi, Hiera'daki kedi ve ördek) `role="button"`, `tabindex="0"` ve `aria-label` taşır, Enter ve Boşluk ile çalışır.
 - Durum değiştiren butonlar (PetPlus anahtarı, Koşuyolu acil sorusu) `aria-pressed` taşır. Değişen içerik `aria-live="polite"` bölgede.
 - Yalnızca görsel olan büyük kelimeler ("Yenişafak", "Neredeyiz?") `aria-hidden`. Asıl bilgi hemen altındaki h2'de.
 - Puan çiplerinde yıldızlar `aria-hidden`, sayı ve yorum adedi `aria-label` ile okunur.
@@ -149,21 +149,33 @@ Neden: Ziyaretçilerin çoğu telefondan geliyor ve aramayı başparmakla yapıy
 - **Bölüm anı:** Ulaşım bölümünde dev "Yenişafak" kelimesi, bölüm görününce aşağıdan yükselir (`translateY(105%) → 0`, 900 ms).
 - **Özel bileşenler:** "Arayın / Gelin / Plan birlikte" üç adım kartı, "Engelsiz erişim" satırı (Google kaydındaki tekerlekli sandalye, otopark ve tuvalet bilgisi).
 
-### Hiera: modern, titiz, takipçi (Pamukkale travertenleri)
+### Hiera: neşeli, temiz, takipçi (Pamukkale havuzunda kedi)
+
+Cimihav'ın dili üstüne kurulu: doygun renkli tam genişlik hero, 3 px mürekkep kenarlar, alttan sert gölgeli "çakıl" kartlar ve konuşan bir karakter.
 
 | Token | Değer | Kullanım |
 |---|---|---|
-| `--bg` | `#F5F3EE` | Traverten beyazı |
-| `--ink` | `#0F2429` | Metin |
-| `--accent` / `--accent-2` | `#0B6F78` / `#095C63` | Butonlar, acil bölümü zemini |
-| `--aqua` / `--aqua-soft` | `#7CCDD1` / `#DCEFEE` | Havuz suyu, hatırlatma notu |
-| `--stone` | `#E7E1D4` | Traverten taşları |
-| `--font-display` | Instrument Serif (normal ve italik) | Başlıklar |
-| `--font-body` | Schibsted Grotesk 400–700 | Gövde, saat tablosu |
-| `--r-s` / `--r-m` / `--r-l` | 8 / 14 / 22 px | Butonlar `--r-s` ile köşeli, daha klinik bir his |
+| `--aqua` / `--aqua-2` | `#3CC4C6` / `#23A7AA` | Hero ve üst çubuk zemini, başlıklardaki vurgu kelimesi |
+| `--pool` | `#8FE1E0` | Havuz suyu, harita kapağındaki daireler |
+| `--aqua-soft` | `#D6F3F1` | Hekim bölümü zemini, hatırlatma kutusu |
+| `--ink` | `#10324A` | Metin, kenarlar, gölgeler, acil kutusunun yan paneli, alt bilgi |
+| `--coral` / `--coral-2` | `#FF6B57` / `#F0533E` | Birincil buton (üstünde koyu metin), kedinin havlusu, puan kartı |
+| `--sun` | `#FFD23F` | Pırıltılar, ördek, "bugün" çipi |
+| `--foam` | `#FFFDF7` | Sayfa zemini, traverten beyazı |
+| `--font-display` | Fredoka 500–700 | Başlıklar, balon yazıları |
+| `--font-body` | Nunito 400–800 | Gövde, butonlar |
+| `--r-s` / `--r-m` / `--r-l` | 14 / 22 / 34 px | Butonlar tam yuvarlak, kartlar çakıl gibi yumuşak |
 
-- **Hero etkileşimi:** Beş kademeli traverten havuzları (SVG, `g.pool[data-tier][data-x0][data-x1]`). Açılışta havuzlar yukarıdan aşağı dolar (`scaleY 0 → 1`, kademe başına 160 ms gecikme). Fareyle havuzun üstünde gezinince en fazla 260 ms'de bir halka yayılır (`ripple`, 1.1 sn). Tıklayınca o kademeden aşağıya su akar (`flow`, kademe başına 170 ms). "Suyu akıt" butonu aynı akışı klavye ve dokunmatik için tetikler.
-- **Özel bileşenler:** 01–04 numaralı hizmet satırları. Saat tablosunda bugünün satırı vurgulanır, ama "şu an açık" ya da "kapalı" yazılmaz. Tablonun altında "Saatler Google kaydından alındı…" notu var.
+- **Butonlar:** 3 px mürekkep kenar, `box-shadow: 0 5px 0 var(--ink)`. Hover'da 2 px yükselir, basınca 5 px iner ve gölge kaybolur (fiziksel tuş hissi).
+- **Hero başlığı:** "Gerzele'nin *pırıl pırıl* veterineri." Vurgu kelimesi krem dolgulu ve mürekkep konturlu (`-webkit-text-stroke: 3px`, `paint-order: stroke fill`), `inline-block` ve `nowrap`, böylece iki kelime hiç ayrılmaz. Yanında iki sarı pırıltı 2.4 sn'de bir parlar.
+- **Hero etkileşimi:** SVG'de (`viewBox 0 0 560 470`) üç traverten havuzu. Üsttekinde başında mercan havlu olan gri kedi suyun içinde oturuyor. Havuzun ön su kenarı kedinin çenesini örter (ayrı bir yay yolu). Alt soldaki havuzda lastik ördek 2.6 sn'de bir sallanır, buhar çizgileri yükselir, havuzlar arasında su akar (`stroke-dashoffset`).
+  - Kediye dokununca (`#catTap`, `role="button"`, Enter ve Boşluk da çalışır) gözleri açılır, başı 6 px kalkar, suda yedi köpük yükselir ve "Mırr…" balonu açılır. 1.7 sn sonra kedi yeniden gözlerini kapar.
+  - Ördeğe dokununca (`#duckTap`) ördek zıplar ve "Vak!" balonu açılır (1.5 sn).
+  - Altta "Kediyi keyiflendirin" ve "Ördeğe dokunun" butonları aynı işi yapar. Açılışta kedi 1.5 sn'de, ördek 3 sn'de bir kez konuşur.
+  - Masaüstünde havuzların sol üstüne eğik bir bildirim kartı iner (1.3 sn gecikmeli): "Hiera Veteriner · Aşı zamanı yaklaştı, randevu için yazabilirsiniz." Bu, yorumlarda geçen mesajla aşı hatırlatmasına gönderme. Kart dekoratiftir (`aria-hidden`) ve 759 px altında gizlenir, aynı bilgi Hizmetler'deki hatırlatma kutusunda var.
+- **Hero alt kenarı:** `.hero::after` ile tekrar eden SVG, travertenin dalgalı kenarı gibi.
+- **Mobil düzen:** 759 px altında `.hero-copy` `display: contents` olur ve sıra şöyle değişir: konum çipi, başlık, açıklama, kedi sahnesi, puan ve saat çipleri, telefon butonu. Böylece karakter ilk ekranda görünür.
+- **Özel bileşenler:** Su damlası numaralı dört hizmet kartı (01–04). Hekim bölümünde dev "Erhan / Orhan" (soyadı mercan ve konturlu). Saat tablosunda bugünün satırı mercan renkte ve yanında sarı "bugün" çipi var, ama "şu an açık" ya da "kapalı" yazılmaz.
 
 ### Cimihav: mahalle veterineri, sıcak ve esprili
 
@@ -199,22 +211,29 @@ Neden: Ziyaretçilerin çoğu telefondan geliyor ve aramayı başparmakla yapıy
 - **Bölüm anı:** Ulaşım bölümünde dev "0553 800 50 00" numarası. Ortadaki "800" `--accent` renginde. Hover'da rakam grupları sırayla 4 px yükselir (50 ms arayla). Numaranın kendisi arama bağlantısıdır.
 - **Özel bileşenler:** Kısırlaştırma zaman çizelgesi kartı (01 tetkik ve kalp değerlendirmesi, 02 operasyon, 03 kontroller).
 
-### Yenişehir Koşuyolu: hızlı, kapsamlı, güven veren
+### Yenişehir Koşuyolu: hızlı, kapsamlı, sıcak (konili köpek)
+
+Cimihav'ın dili üstüne kurulu: kliniğin kendi turuncusu tam genişlik hero zemini, 3 px mürekkep kenarlar, alttan sert gölgeler ve soru soran bir karakter.
 
 | Token | Değer | Kullanım |
 |---|---|---|
-| `--teal` / `--teal-2` | `#0B5C63` / `#084A50` | Kliniğin kendi petrol yeşili: hero, üst çubuk, alt bilgi |
-| `--teal-soft` | `#DCEDEA` | Simge zeminleri, harita kapağı |
-| `--orange` / `--orange-2` | `#F08A24` / `#DB7614` | Kliniğin turuncusu: birincil buton (üstünde koyu metin), liste işaretleri |
-| `--cream` / `--sand` | `#FFF6EA` / `#FBEAD3` | Sayfa zemini, acil bölümü zemini |
-| `--ink` | `#10282B` | Metin |
-| `--font-display` | Red Hat Display 500, 700, 900 | Başlıklar |
-| `--font-body` | Red Hat Text 400, 500, 700 | Gövde |
-| `--r-s` / `--r-m` / `--r-l` | 10 / 18 / 28 px | Butonlar tam yuvarlak |
+| `--orange` / `--orange-2` | `#F28A26` / `#DD7410` | Hero ve üst çubuk zemini, puan kartı |
+| `--teal` / `--teal-2` | `#0B5C63` / `#08474D` | Kliniğin petrol yeşili: birincil buton, büyük hizmet kartı, acil kutusunun yan paneli |
+| `--ink` | `#0A3A3F` | Metin, kenarlar, gölgeler |
+| `--cream` / `--sand` | `#FFF6EA` / `#FDE3C2` | Sayfa zemini, ikincil kartlar |
+| `--mint` | `#CFEBE6` | Hekim bölümü zemini |
+| `--font-display` | Paytone One | Başlıklar, balon yazıları |
+| `--font-body` | Rubik 400–700 | Gövde, butonlar |
+| `--r-s` / `--r-m` / `--r-l` | 12 / 18 / 28 px | Butonlar tam yuvarlak |
 
-- **Hero etkileşimi:** "Şu an acil bir durum mu var?" kartı. Kart açılışta hafif eğik halden yerine oturur (800 ms, 300 ms gecikmeli). "Evet, acil" seçilince turuncu olur ve altında büyük "Şimdi ara" butonu ile üç adım belirir. "Hayır, randevu" seçilince yeşil olur ve WhatsApp randevu butonu çıkar. Cevap alanı 450 ms'de yükselerek gelir (`aria-live="polite"`).
-- **Bölüm anı:** Ulaşım bölümündeki dev "Neredeyiz?" kelimesi. Bölüm görününce turuncu soru işareti bir kez sallanır (`wiggle`, 1.2 sn).
-- **Özel bileşenler:** Kliniğin Instagram'daki hizmet listesinden dört grup kartı (Muayene ve tanı, Cerrahi, Yatış ve yoğun bakım, Koruyucu ve evde). Ayrıca Instagram, YouTube ve TikTok bağlantıları (Simple Icons, marka renkleri).
+- **Butonlar:** 3 px mürekkep kenar, `box-shadow: 0 5px 0 var(--ink)`. Basınca 5 px iner.
+- **Hero başlığı:** "Röntgenden yoğun bakıma, hepsi *Koşuyolu'nda.*" Vurgu krem dolgulu, mürekkep konturlu ve altında dalgalı çizgi.
+- **Hero etkileşimi:** Ameliyat konisi takmış köpek (`#dog`, `viewBox 0 0 520 440`) yanındaki konuşma balonu kartında "Şu an acil bir durum mu var?" diye soruyor.
+  - "Evet, acil" (`.choice.yes`, `aria-pressed`): köpek endişelenir (kaşlar çatılır, kulaklar düşer, ter damlası belirir), altında "Şimdi ara" butonu ve üç adım açılır.
+  - "Hayır, randevu" (`.choice.no`): köpek sevinir (kuyruk sallanır, dil çıkar), WhatsApp randevu butonu açılır. Cevap alanı `aria-live="polite"`.
+  - Köpek başını imlece doğru en fazla ±9° eğer. Köpeğe dokununca başını yana yatırır ve "Hav?" balonu açılır (1.5 sn). Açılışta bu bir kez 1.6 sn'de olur. Köpek dekoratiftir (`aria-hidden`), asıl etkileşim iki butondadır.
+- **Bölüm anı:** Ulaşım bölümünde dev "Neredeyiz?" kelimesi ve altında bir yol şeridi. Bölüm görününce (`IntersectionObserver`, eşik 0.6) küçük bir köpek yol boyunca koşar (2.4 sn) ve durur. "Koşuyolu" adına gönderme. Hareket azaltılmışsa ya da JS kapalıysa köpek yolun başında durur.
+- **Özel bileşenler:** Kliniğin Instagram'daki hizmet listesinden grup kartları. "Yatış ve yoğun bakım" petrol yeşili ve iki satır yüksekliğinde. Ayrıca "Evde veteriner" kartı, Instagram, YouTube ve TikTok çıkartmaları (Simple Icons) ve harita kapağında SVG iğne var.
 
 ---
 

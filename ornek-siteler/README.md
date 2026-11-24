@@ -9,10 +9,10 @@ Bilgiler 24 Kasım 2026'da toplandı. Kaynaklar: Google Haritalar kayıtları, D
 | Klinik | Dosya | Kişilik | Yazı tipleri | Hero etkileşimi |
 |---|---|---|---|---|
 | Vetripol Veteriner Kliniği (Yenişafak, Merkezefendi) | [`vetripol/index.html`](vetripol/index.html) | Sakin, sabırlı, anlatan | Fraunces + Figtree | İmleci izleyen, dokununca yavaşça göz kırpan kedi |
-| Hiera Veteriner (Gerzele, Merkezefendi) | [`hiera/index.html`](hiera/index.html) | Modern, titiz, takipçi | Instrument Serif + Schibsted Grotesk | Pamukkale travertenleri: dokununca su aşağı akar |
+| Hiera Veteriner (Gerzele, Merkezefendi) | [`hiera/index.html`](hiera/index.html) | Neşeli, temiz, takipçi | Fredoka + Nunito | Turkuaz zemin, traverten havuzunda havlulu kedi ve lastik ördek: dokununca "Mırr…" ve "Vak!" |
 | Cimihav Veteriner Muayenehanesi (Selçukbey, Merkezefendi) | [`cimihav/index.html`](cimihav/index.html) | Mahalle veterineri, sıcak ve esprili | Bricolage Grotesque + Instrument Sans | Duvardaki köpek ve kedi: dokununca "Hav!" ve "Miyav." |
 | PetPlus Veteriner Kliniği (İstiklal, Pamukkale) | [`petplus/index.html`](petplus/index.html) | Düzenli, enerjik | Archivo (geniş kesim) | "Klinikte / Evde" anahtarı, çizim klinikten eve dönüşür |
-| Denizli Yenişehir Koşuyolu Veteriner Kliniği (Merkezefendi) | [`kosuyolu/index.html`](kosuyolu/index.html) | Hızlı, kapsamlı, güven veren | Red Hat Display + Red Hat Text | "Şu an acil bir durum mu var?" sorusu: Evet → arama adımları, Hayır → WhatsApp randevusu |
+| Denizli Yenişehir Koşuyolu Veteriner Kliniği (Merkezefendi) | [`kosuyolu/index.html`](kosuyolu/index.html) | Hızlı, kapsamlı, sıcak | Paytone One + Rubik | Turuncu zemin, konili köpek "Şu an acil mi?" diye soruyor: Evet → endişelenir ve arama adımları çıkar, Hayır → kuyruk sallar ve WhatsApp randevusu çıkar |
 
 ### Önizleme
 
@@ -23,6 +23,8 @@ Dosyalar tek başına çalışır, tarayıcıda doğrudan açılabilir. Depo her
 - https://raw.githack.com/isaergisi/Petovya/main/ornek-siteler/cimihav/index.html
 - https://raw.githack.com/isaergisi/Petovya/main/ornek-siteler/petplus/index.html
 - https://raw.githack.com/isaergisi/Petovya/main/ornek-siteler/kosuyolu/index.html
+
+Hiera ve Koşuyolu ikinci turda, beğenilen Cimihav sayfasının cesur diliyle yeniden çizildi (doygun renkli hero, kalın mürekkep kenarlar, dokununca konuşan karakter). Vetripol ve PetPlus ilk turdaki hâlinde.
 
 ## Her sayfada olanlar
 
